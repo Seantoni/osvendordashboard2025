@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Proveedores</title>
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Lexend Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="header-background">
+    <header class="site-header">
+      <div class="header-left">
+        <div class="brand">
+          <img src="https://i.ibb.co/cKhW22w0/OFS-Marca-Naranja-03.png" alt="Os Segredos Da Carne Logo" class="company-logo">
+        </div>
+        <div class="dashboard-info">
+          <h2 class="dashboard-title">Panel de control</h2>
+        </div>
+        <h1 class="business-name">
+          <span>Os Segredos Da Carne</span>
+        </h1>
+      </div>
+      <div class="header-date">
+        <i class="far fa-calendar-alt"></i>
+        <script>
+          document.write(new Date().toLocaleDateString('es-ES', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+          }));
+        </script>
+      </div>
+    </header>
+  </div>
+  <div class="dashboard">
+    <!-- Overview Section -->
+    <section class="overview">
+      <h2 class="section-title">Resumen</h2>
+      <div class="filters">
+      </div>
+
+      <!-- Key Metrics Cards -->
+      <div class="metrics">
+        <div class="metric-card">
+          <div class="metric-card-header">
+            <div class="metric-title">
+              <i class="fas fa-tags metric-icon"></i>
+          <h3>Total de Ofertas</h3>
+            </div>
+          <p id="totalOffers">12</p>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card-header">
+            <div class="metric-title">
+              <i class="fas fa-check-circle metric-icon"></i>
+          <h3>Ofertas Activas</h3>
+            </div>
+          <p id="activeOffers">8</p>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card-header">
+            <div class="metric-title">
+              <i class="fas fa-dollar-sign metric-icon"></i>
+          <h3>Ganancias Totales</h3>
+            </div>
+          <p id="totalEarnings">$45,890</p>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card-header">
+            <div class="metric-title">
+              <i class="fas fa-chart-line metric-icon"></i>
+          <h3>Tasa de Canje Promedio</h3>
+            </div>
+          <p id="averageRedemption">82.4%</p>
+          </div>
+        </div>
+      </div>
+      <p class="section-disclaimer">
+        <i class="fas fa-info-circle"></i>
+        Los datos mostrados corresponden a los últimos 360 días
+      </p>
+    </section>
+
+    <!-- Message Bar -->
+    <div class="message-bar">
+      <div class="message-content">
+        <i class="fas fa-comments wave-icon"></i>
+        <p class="message-text">
+          ¿Quieres mejorar tus resultados? 
+          <span class="message-highlight">¡Nuestro equipo de ventas puede ayudarte!</span>
+        </p>
+      </div>
+      <button class="message-cta" onclick="showContactPopup()">
+        <i class="fas fa-rocket"></i>
+        Hablar con un experto
+      </button>
+    </div>
+
+    <!-- Offers List Section -->
+    <section class="offers-list">
+      <!-- Best Deal Call-to-Action Section -->
+      <section class="best-deal-cta">
+        <h2 class="section-title">Mejores Ofertas</h2>
+        <div class="best-deals-container">
+          <!-- Best Deal by Vouchers -->
+          <div class="best-deal-card" role="button" tabindex="0">
+            <div class="best-deal-info">
+              <p class="best-deal-text">
+                <i class="fas fa-ticket-alt"></i>
+                Mejor oferta - vouchers
+              </p>
+              <p class="best-deal-name">
+                <i class="fas fa-trophy" style="color: var(--main-color);"></i>
+                <strong>Oferta 3</strong>
+                <span class="deal-date">25 Ago 2024</span>
+              </p>
+              <div class="best-deal-values">
+                <div class="value-item">
+                  <span class="value-label">Vendidos</span>
+                  <span class="value-number">500</span>
+                </div>
+                <div class="value-item">
+                  <span class="value-label">Ganancia</span>
+                  <span class="value-number">$10,000</span>
+                </div>
+              </div>
+            </div>
+            <div class="best-deal-actions">
+              <div class="cta-button">
+                <i class="fas fa-sync-alt"></i>
+                Repetir oferta
+              </div>
+              <a href="https://example.com/offer/3" target="_blank" class="view-deal-btn">
+                <i class="fas fa-external-link-alt"></i>
+                Ver oferta
+              </a>
+            </div>
+          </div>
+          
+          <!-- Best Deal by Earnings -->
+          <div class="best-deal-card" role="button" tabindex="0">
+            <div class="best-deal-info">
+              <p class="best-deal-text">
+                <i class="fas fa-dollar-sign"></i>
+                Mejor oferta - ganancia
+              </p>
+              <p class="best-deal-name">
+                <i class="fas fa-trophy" style="color: var(--main-color);"></i>
+                <strong>Oferta 10</strong>
+                <span class="deal-date">09 Sep 2024</span>
+              </p>
+              <div class="best-deal-values">
+                <div class="value-item">
+                  <span class="value-label">Vendidos</span>
+                  <span class="value-number">600</span>
+                </div>
+                <div class="value-item">
+                  <span class="value-label">Ganancia</span>
+                  <span class="value-number">$12,500</span>
+                </div>
+              </div>
+            </div>
+            <div class="best-deal-actions">
+              <div class="cta-button">
+                <i class="fas fa-sync-alt"></i>
+                Repetir oferta
+              </div>
+              <a href="https://example.com/offer/10" target="_blank" class="view-deal-btn">
+                <i class="fas fa-external-link-alt"></i>
+                Ver oferta
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="table-header">
+        <h3 class="table-title">Ofertas</h3>
+        <div class="table-controls">
+          <!-- Search Bar -->
+          <div class="search-bar">
+            <input type="text" id="offerSearch" placeholder="Buscar ofertas...">
+          </div>
+          <!-- Toggle Buttons for Status -->
+          <div class="status-filters">
+            <button class="toggle active" data-status="all">Todos</button>
+            <button class="toggle" data-status="active">Activos</button>
+            <button class="toggle" data-status="inactive">Inactivos</button>
+          </div>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th class="sortable" data-sort="name">Nombre de la Oferta</th>
+            <th class="sortable" data-sort="date">Fecha de Lanzamiento</th>
+            <th class="sortable" data-sort="status">Estado</th>
+            <th class="sortable" data-sort="progress">Progreso</th>
+            <th class="sortable" data-sort="redemptions">Canjes</th>
+            <th class="sortable" data-sort="earnings">Ganancias</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="offersTableBody">
+          <!-- Sample offer row for Oferta 1 -->
+          <tr class="offer-row expanded" data-status="active">
+            <td>
+              <div class="offer-title">
+                <span class="dropdown-arrow"><i class="fas fa-angle-down"></i></span>
+                <span class="offer-name">Oferta 1</span>
+              </div>
+            </td>
+            <td>15 Ago 2024</td>
+            <td><span class="status active">Activo</span></td>
+            <td>
+              <div class="progress-bar">
+                <div class="progress" style="width: 75%;">
+                  <span class="progress-value">75%</span>
+                  <span class="progress-label">75%</span>
+                </div>
+              </div>
+            </td>
+            <td>453/501</td>
+            <td>$9,060</td>
+            <td>
+              <button class="action-btn refresh" title="Repetir Oferta"><i class="fas fa-sync-alt"></i></button>
+              <button class="action-btn support" title="Soporte"><i class="fas fa-headset"></i></button>
+              <button class="action-btn download" title="Descargar"><i class="fas fa-download"></i></button>
+            </td>
+          </tr>
+          <!-- Hidden details row with dummy data for Oferta 1 -->
+          <tr class="offer-details" style="display: none;">
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>Opción 1</span>
+                  <span>Opción 2</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 75%;">
+                      <span class="progress-label">75%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>453/501</span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>$9,060</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+          <!-- Add this after the first offer's details row -->
+          <tr class="offer-row" data-status="inactive">
+            <td>
+              <div class="offer-title">
+                <span class="dropdown-arrow"><i class="fas fa-angle-down"></i></span>
+                <span class="offer-name">Oferta 2</span>
+              </div>
+            </td>
+            <td>20 Ago 2024</td>
+            <td><span class="status inactive">Inactivo</span></td>
+            <td>
+              <div class="progress-bar">
+                <div class="progress" style="width: 45%;">
+                  <span class="progress-value">45%</span>
+                  <span class="progress-label">45%</span>
+                </div>
+              </div>
+            </td>
+            <td>278/600</td>
+            <td>$5,230</td>
+            <td>
+              <button class="action-btn refresh" title="Repetir Oferta"><i class="fas fa-sync-alt"></i></button>
+              <button class="action-btn support" title="Soporte"><i class="fas fa-headset"></i></button>
+              <button class="action-btn download" title="Descargar"><i class="fas fa-download"></i></button>
+            </td>
+          </tr>
+          <!-- Hidden details row for Oferta 2 -->
+          <tr class="offer-details" style="display: none;">
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>Opción 2</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 45%;">
+                      <span class="progress-label">45%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>278/600</span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>$5,230</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+          <!-- Additional Offer Rows -->
+          <!-- Oferta 3 (Active) -->
+          <tr class="offer-row" data-status="active">
+            <td>
+              <div class="offer-title">
+                <span class="dropdown-arrow"><i class="fas fa-angle-down"></i></span>
+                <span class="offer-name">Oferta 3</span>
+              </div>
+            </td>
+            <td>25 Ago 2024</td>
+            <td><span class="status active">Activo</span></td>
+            <td>
+              <div class="progress-bar">
+                <div class="progress" style="width: 80%;">
+                  <span class="progress-value">80%</span>
+                  <span class="progress-label">80%</span>
+                </div>
+              </div>
+            </td>
+            <td>500/550</td>
+            <td>$10,000</td>
+            <td>
+              <button class="action-btn refresh" title="Repetir Oferta"><i class="fas fa-sync-alt"></i></button>
+              <button class="action-btn support" title="Soporte"><i class="fas fa-headset"></i></button>
+              <button class="action-btn download" title="Descargar"><i class="fas fa-download"></i></button>
+            </td>
+          </tr>
+          <tr class="offer-details" style="display: none;">
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>Opción 1</span>
+                  <span>Opción 2</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 80%;">
+                      <span class="progress-label">80%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>500/550</span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>$10,000</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+          <!-- Oferta 4 (Inactive) -->
+          <tr class="offer-row" data-status="inactive">
+            <td>
+              <div class="offer-title">
+                <span class="dropdown-arrow"><i class="fas fa-angle-down"></i></span>
+                <span class="offer-name">Oferta 4</span>
+              </div>
+            </td>
+            <td>28 Ago 2024</td>
+            <td><span class="status inactive">Inactivo</span></td>
+            <td>
+              <div class="progress-bar">
+                <div class="progress" style="width: 40%;">
+                  <span class="progress-value">40%</span>
+                  <span class="progress-label">40%</span>
+                </div>
+              </div>
+            </td>
+            <td>200/500</td>
+            <td>$4,800</td>
+            <td>
+              <button class="action-btn refresh" title="Repetir Oferta"><i class="fas fa-sync-alt"></i></button>
+              <button class="action-btn support" title="Soporte"><i class="fas fa-headset"></i></button>
+              <button class="action-btn download" title="Descargar"><i class="fas fa-download"></i></button>
+            </td>
+          </tr>
+          <tr class="offer-details" style="display: none;">
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>Opción 1</span>
+                  <span>Opción 2</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 40%;">
+                      <span class="progress-label">40%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>200/500</span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>$4,800</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+          <!-- Oferta 5 (Active) -->
+          <tr class="offer-row" data-status="active">
+            <td>
+              <div class="offer-title">
+                <span class="dropdown-arrow"><i class="fas fa-angle-down"></i></span>
+                <span class="offer-name">Oferta 5</span>
+              </div>
+            </td>
+            <td>30 Ago 2024</td>
+            <td><span class="status active">Activo</span></td>
+            <td>
+              <div class="progress-bar">
+                <div class="progress" style="width: 70%;">
+                  <span class="progress-value">70%</span>
+                  <span class="progress-label">70%</span>
+                </div>
+              </div>
+            </td>
+            <td>400/450</td>
+            <td>$8,200</td>
+            <td>
+              <button class="action-btn refresh" title="Repetir Oferta"><i class="fas fa-sync-alt"></i></button>
+              <button class="action-btn support" title="Soporte"><i class="fas fa-headset"></i></button>
+              <button class="action-btn download" title="Descargar"><i class="fas fa-download"></i></button>
+            </td>
+          </tr>
+          <tr class="offer-details" style="display: none;">
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>Opción 1</span>
+                  <span>Opción 2</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 70%;">
+                      <span class="progress-label">70%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>400/450</span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>$8,200</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+          <!-- Oferta 6 (Active) -->
+          <tr class="offer-row" data-status="active">
+            <td>
+              <div class="offer-title">
+                <span class="dropdown-arrow"><i class="fas fa-angle-down"></i></span>
+                <span class="offer-name">Oferta 6</span>
+              </div>
+            </td>
+            <td>01 Sep 2024</td>
+            <td><span class="status active">Activo</span></td>
+            <td>
+              <div class="progress-bar">
+                <div class="progress" style="width: 65%;">
+                  <span class="progress-value">65%</span>
+                  <span class="progress-label">65%</span>
+                </div>
+              </div>
+            </td>
+            <td>350/400</td>
+            <td>$7,500</td>
+            <td>
+              <button class="action-btn refresh" title="Repetir Oferta"><i class="fas fa-sync-alt"></i></button>
+              <button class="action-btn support" title="Soporte"><i class="fas fa-headset"></i></button>
+              <button class="action-btn download" title="Descargar"><i class="fas fa-download"></i></button>
+            </td>
+          </tr>
+          <tr class="offer-details" style="display: none;">
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>Opción 1</span>
+                  <span>Opción 2</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 65%;">
+                      <span class="progress-label">65%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>350/400</span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>$7,500</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+          <!-- Oferta 7 (Inactive) -->
+          <tr class="offer-row" data-status="inactive">
+            <td>
+              <div class="offer-title">
+                <span class="dropdown-arrow"><i class="fas fa-angle-down"></i></span>
+                <span class="offer-name">Oferta 7</span>
+              </div>
+            </td>
+            <td>03 Sep 2024</td>
+            <td><span class="status inactive">Inactivo</span></td>
+            <td>
+              <div class="progress-bar">
+                <div class="progress" style="width: 50%;">
+                  <span class="progress-value">50%</span>
+                  <span class="progress-label">50%</span>
+                </div>
+              </div>
+            </td>
+            <td>300/350</td>
+            <td>$6,000</td>
+            <td>
+              <button class="action-btn refresh" title="Repetir Oferta"><i class="fas fa-sync-alt"></i></button>
+              <button class="action-btn support" title="Soporte"><i class="fas fa-headset"></i></button>
+              <button class="action-btn download" title="Descargar"><i class="fas fa-download"></i></button>
+            </td>
+          </tr>
+          <tr class="offer-details" style="display: none;">
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>Opción 1</span>
+                  <span>Opción 2</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 50%;">
+                      <span class="progress-label">50%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>300/350</span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>$6,000</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+          <!-- Oferta 8 (Active) -->
+          <tr class="offer-row" data-status="active">
+            <td>
+              <div class="offer-title">
+                <span class="dropdown-arrow"><i class="fas fa-angle-down"></i></span>
+                <span class="offer-name">Oferta 8</span>
+              </div>
+            </td>
+            <td>05 Sep 2024</td>
+            <td><span class="status active">Activo</span></td>
+            <td>
+              <div class="progress-bar">
+                <div class="progress" style="width: 85%;">
+                  <span class="progress-value">85%</span>
+                  <span class="progress-label">85%</span>
+                </div>
+              </div>
+            </td>
+            <td>480/520</td>
+            <td>$11,000</td>
+            <td>
+              <button class="action-btn refresh" title="Repetir Oferta"><i class="fas fa-sync-alt"></i></button>
+              <button class="action-btn support" title="Soporte"><i class="fas fa-headset"></i></button>
+              <button class="action-btn download" title="Descargar"><i class="fas fa-download"></i></button>
+            </td>
+          </tr>
+          <tr class="offer-details" style="display: none;">
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>Opción 1</span>
+                  <span>Opción 2</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 85%;">
+                      <span class="progress-label">85%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>480/520</span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>$11,000</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+          <!-- Oferta 9 (Inactive) -->
+          <tr class="offer-row" data-status="inactive">
+            <td>
+              <div class="offer-title">
+                <span class="dropdown-arrow"><i class="fas fa-angle-down"></i></span>
+                <span class="offer-name">Oferta 9</span>
+              </div>
+            </td>
+            <td>07 Sep 2024</td>
+            <td><span class="status inactive">Inactivo</span></td>
+            <td>
+              <div class="progress-bar">
+                <div class="progress" style="width: 30%;">
+                  <span class="progress-value">30%</span>
+                  <span class="progress-label">30%</span>
+                </div>
+              </div>
+            </td>
+            <td>150/300</td>
+            <td>$3,500</td>
+            <td>
+              <button class="action-btn refresh" title="Repetir Oferta"><i class="fas fa-sync-alt"></i></button>
+              <button class="action-btn support" title="Soporte"><i class="fas fa-headset"></i></button>
+              <button class="action-btn download" title="Descargar"><i class="fas fa-download"></i></button>
+            </td>
+          </tr>
+          <tr class="offer-details" style="display: none;">
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>Opción 1</span>
+                  <span>Opción 2</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 30%;">
+                      <span class="progress-label">30%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>150/300</span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>$3,500</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+          <!-- Oferta 10 (Active) -->
+          <tr class="offer-row" data-status="active">
+            <td>
+              <div class="offer-title">
+                <span class="dropdown-arrow"><i class="fas fa-angle-down"></i></span>
+                <span class="offer-name">Oferta 10</span>
+              </div>
+            </td>
+            <td>09 Sep 2024</td>
+            <td><span class="status active">Activo</span></td>
+            <td>
+              <div class="progress-bar">
+                <div class="progress" style="width: 90%;">
+                  <span class="progress-value">90%</span>
+                  <span class="progress-label">90%</span>
+                </div>
+              </div>
+            </td>
+            <td>600/650</td>
+            <td>$12,500</td>
+            <td>
+              <button class="action-btn refresh" title="Repetir Oferta"><i class="fas fa-sync-alt"></i></button>
+              <button class="action-btn support" title="Soporte"><i class="fas fa-headset"></i></button>
+              <button class="action-btn download" title="Descargar"><i class="fas fa-download"></i></button>
+            </td>
+          </tr>
+          <tr class="offer-details" style="display: none;">
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>Opción 1</span>
+                  <span>Opción 2</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 90%;">
+                      <span class="progress-label">90%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>600/650</span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>$12,500</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+          <!-- Oferta 11 (Inactive) -->
+          <tr class="offer-row" data-status="inactive">
+            <td>
+              <div class="offer-title">
+                <span class="dropdown-arrow"><i class="fas fa-angle-down"></i></span>
+                <span class="offer-name">Oferta 11</span>
+              </div>
+            </td>
+            <td>11 Sep 2024</td>
+            <td><span class="status inactive">Inactivo</span></td>
+            <td>
+              <div class="progress-bar">
+                <div class="progress" style="width: 55%;">
+                  <span class="progress-value">55%</span>
+                  <span class="progress-label">55%</span>
+                </div>
+              </div>
+            </td>
+            <td>320/400</td>
+            <td>$6,500</td>
+            <td>
+              <button class="action-btn refresh" title="Repetir Oferta"><i class="fas fa-sync-alt"></i></button>
+              <button class="action-btn support" title="Soporte"><i class="fas fa-headset"></i></button>
+              <button class="action-btn download" title="Descargar"><i class="fas fa-download"></i></button>
+            </td>
+          </tr>
+          <tr class="offer-details" style="display: none;">
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>Opción 1</span>
+                  <span>Opción 2</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 55%;">
+                      <span class="progress-label">55%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>320/400</span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>$6,500</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+          <!-- Oferta 12 (Active) -->
+          <tr class="offer-row" data-status="active">
+            <td>
+              <div class="offer-title">
+                <span class="dropdown-arrow"><i class="fas fa-angle-down"></i></span>
+                <span class="offer-name">Oferta 12</span>
+              </div>
+            </td>
+            <td>13 Sep 2024</td>
+            <td><span class="status active">Activo</span></td>
+            <td>
+              <div class="progress-bar">
+                <div class="progress" style="width: 95%;">
+                  <span class="progress-value">95%</span>
+                  <span class="progress-label">95%</span>
+                </div>
+              </div>
+            </td>
+            <td>700/750</td>
+            <td>$13,000</td>
+            <td>
+              <button class="action-btn refresh" title="Repetir Oferta"><i class="fas fa-sync-alt"></i></button>
+              <button class="action-btn support" title="Soporte"><i class="fas fa-headset"></i></button>
+              <button class="action-btn download" title="Descargar"><i class="fas fa-download"></i></button>
+            </td>
+          </tr>
+          <tr class="offer-details" style="display: none;">
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>Opción 1</span>
+                  <span>Opción 2</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 95%;">
+                      <span class="progress-label">95%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>700/750</span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="details-content">
+                <div class="options-list">
+                  <span>$13,000</span>
+                </div>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <!-- Link JS -->
+  <script src="script.js"></script>
+</body>
+</html>
