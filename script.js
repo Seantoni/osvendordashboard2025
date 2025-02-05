@@ -481,4 +481,44 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  // Add touch support for table interactions
+  function addTouchSupport() {
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    document.querySelector('.offers-table').addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, false);
+    
+    document.querySelector('.offers-table').addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, false);
+    
+    function handleSwipe() {
+      const swipeThreshold = 100;
+      const swipeDistance = touchEndX - touchStartX;
+      
+      if (Math.abs(swipeDistance) < swipeThreshold) {
+        // If it's a tap rather than a swipe, handle row expansion
+        return;
+      }
+    }
+  }
+
+  // Initialize touch support
+  addTouchSupport();
+  
+  // Check if mobile and adjust initial state
+  const isMobile = window.innerWidth <= 768;
+  if (isMobile) {
+    // Collapse all rows initially on mobile
+    document.querySelectorAll('.offer-details').forEach(row => {
+      row.style.display = 'none';
+    });
+    document.querySelectorAll('.offer-row').forEach(row => {
+      row.classList.remove('expanded');
+    });
+  }
 }); 

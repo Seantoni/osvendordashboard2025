@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#E84c0f">
   <title>Dashboard de Proveedores</title>
   <!-- Link CSS -->
   <link rel="stylesheet" href="styles.css">
@@ -112,20 +113,20 @@
         <div class="best-deals-container">
           <!-- Best Deal by Vouchers -->
           <div class="best-deal-card" role="button" tabindex="0">
+            <div class="card-category">
+              <i class="fas fa-chart-line"></i>
+              Mayor Venta
+            </div>
             <div class="best-deal-info">
-              <p class="best-deal-text">
-                <i class="fas fa-ticket-alt"></i>
-                Mejor oferta - vouchers
-              </p>
               <p class="best-deal-name">
                 <i class="fas fa-trophy" style="color: var(--main-color);"></i>
-                <strong>Oferta 3</strong>
-                <span class="deal-date">25 Ago 2024</span>
+                <strong>Estadía en Hotel de Playa</strong>
               </p>
+              <p class="deal-date">25 Ago 2024</p>
               <div class="best-deal-values">
                 <div class="value-item">
                   <span class="value-label">Vendidos</span>
-                  <span class="value-number">500</span>
+                  <span class="value-number">500/550</span>
                 </div>
                 <div class="value-item">
                   <span class="value-label">Ganancia</span>
@@ -134,29 +135,29 @@
               </div>
             </div>
             <div class="best-deal-actions">
-              <div class="cta-button">
-                <i class="fas fa-sync-alt"></i>
-                Repetir oferta
-              </div>
               <a href="https://example.com/offer/3" target="_blank" class="view-deal-btn">
                 <i class="fas fa-external-link-alt"></i>
                 Ver oferta
               </a>
+              <div class="cta-button">
+                <i class="fas fa-sync-alt"></i>
+                Repetir oferta
+              </div>
             </div>
           </div>
           
           <!-- Best Deal by Earnings -->
           <div class="best-deal-card" role="button" tabindex="0">
+            <div class="card-category">
+              <i class="fas fa-dollar-sign"></i>
+              Mayor Ganancia
+            </div>
             <div class="best-deal-info">
-              <p class="best-deal-text">
-                <i class="fas fa-dollar-sign"></i>
-                Mejor oferta - ganancia
-              </p>
               <p class="best-deal-name">
                 <i class="fas fa-trophy" style="color: var(--main-color);"></i>
                 <strong>Oferta 10</strong>
-                <span class="deal-date">09 Sep 2024</span>
               </p>
+              <p class="deal-date">09 Sep 2024</p>
               <div class="best-deal-values">
                 <div class="value-item">
                   <span class="value-label">Vendidos</span>
@@ -169,14 +170,14 @@
               </div>
             </div>
             <div class="best-deal-actions">
-              <div class="cta-button">
-                <i class="fas fa-sync-alt"></i>
-                Repetir oferta
-              </div>
               <a href="https://example.com/offer/10" target="_blank" class="view-deal-btn">
                 <i class="fas fa-external-link-alt"></i>
                 Ver oferta
               </a>
+              <div class="cta-button">
+                <i class="fas fa-sync-alt"></i>
+                Repetir oferta
+              </div>
             </div>
           </div>
         </div>
@@ -214,7 +215,7 @@
             <td>
               <div class="offer-title">
                 <span class="dropdown-arrow"><i class="fas fa-angle-down"></i></span>
-                <span class="offer-name">Oferta 1</span>
+                <span class="offer-name">Día de Playa en Taboga</span>
               </div>
             </td>
             <td>15 Ago 2024</td>
@@ -237,38 +238,61 @@
           </tr>
           <!-- Hidden details row with dummy data for Oferta 1 -->
           <tr class="offer-details" style="display: none;">
-            <td>
+            <td data-label="Opciones">
               <div class="details-content">
                 <div class="options-list">
-                  <span>Opción 1</span>
-                  <span>Opción 2</span>
+                  <div class="option-item">
+                    <span class="option-name">DOMINGO 9 DE FEBRERO - 1 ADULTO (13 años en adelante): Día de playa en Isla Taboga.</span>
+                  </div>
+                  <div class="option-item">
+                    <span class="option-name">DOMINGO 9 DE FEBRERO - 1 NIÑO (3 a 12 años): Día de playa en Isla Taboga.</span>
+                  </div>
                 </div>
               </div>
             </td>
             <td></td>
             <td></td>
-            <td>
+            <td data-label="Progreso">
               <div class="details-content">
                 <div class="options-list">
-                  <div class="progress-bar">
-                    <div class="progress" style="width: 75%;">
-                      <span class="progress-label">75%</span>
+                  <div class="option-item">
+                    <div class="progress-bar">
+                      <div class="progress" style="width: 80%;">
+                        <span class="progress-label">80%</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="option-item">
+                    <div class="progress-bar">
+                      <div class="progress" style="width: 70%;">
+                        <span class="progress-label">70%</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Canjes">
               <div class="details-content">
                 <div class="options-list">
-                  <span>453/501</span>
+                  <div class="option-item">
+                    <span>300/350</span>
+                  </div>
+                  <div class="option-item">
+                    <span>153/151</span>
+                  </div>
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Ganancias">
               <div class="details-content">
                 <div class="options-list">
-                  <span>$9,060</span>
+                  <div class="option-item">
+                    <span>$6,000</span>
+                  </div>
+                  <div class="option-item">
+                    <span>$3,060</span>
+                  </div>
                 </div>
               </div>
             </td>
@@ -302,7 +326,7 @@
           </tr>
           <!-- Hidden details row for Oferta 2 -->
           <tr class="offer-details" style="display: none;">
-            <td>
+            <td data-label="Opciones">
               <div class="details-content">
                 <div class="options-list">
                   <span>Opción 2</span>
@@ -311,7 +335,7 @@
             </td>
             <td></td>
             <td></td>
-            <td>
+            <td data-label="Progreso">
               <div class="details-content">
                 <div class="options-list">
                   <div class="progress-bar">
@@ -322,14 +346,14 @@
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Canjes">
               <div class="details-content">
                 <div class="options-list">
                   <span>278/600</span>
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Ganancias">
               <div class="details-content">
                 <div class="options-list">
                   <span>$5,230</span>
@@ -344,7 +368,7 @@
             <td>
               <div class="offer-title">
                 <span class="dropdown-arrow"><i class="fas fa-angle-down"></i></span>
-                <span class="offer-name">Oferta 3</span>
+                <span class="offer-name">Estadía en Hotel de Playa</span>
               </div>
             </td>
             <td>25 Ago 2024</td>
@@ -366,17 +390,18 @@
             </td>
           </tr>
           <tr class="offer-details" style="display: none;">
-            <td>
+            <td data-label="Opciones">
               <div class="details-content">
                 <div class="options-list">
-                  <span>Opción 1</span>
-                  <span>Opción 2</span>
+                  <div class="option-item">
+                    <span class="option-name">DOMINGO A JUEVES - 1 NOCHE: Estadía para 2 adultos. No son válidas del 16 al 20 de febrero, del 24 al 26 de febrero ni del 2 al 12 de marzo.</span>
+                  </div>
                 </div>
               </div>
             </td>
             <td></td>
             <td></td>
-            <td>
+            <td data-label="Progreso">
               <div class="details-content">
                 <div class="options-list">
                   <div class="progress-bar">
@@ -387,14 +412,14 @@
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Canjes">
               <div class="details-content">
                 <div class="options-list">
                   <span>500/550</span>
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Ganancias">
               <div class="details-content">
                 <div class="options-list">
                   <span>$10,000</span>
@@ -430,7 +455,7 @@
             </td>
           </tr>
           <tr class="offer-details" style="display: none;">
-            <td>
+            <td data-label="Opciones">
               <div class="details-content">
                 <div class="options-list">
                   <span>Opción 1</span>
@@ -440,7 +465,7 @@
             </td>
             <td></td>
             <td></td>
-            <td>
+            <td data-label="Progreso">
               <div class="details-content">
                 <div class="options-list">
                   <div class="progress-bar">
@@ -451,14 +476,14 @@
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Canjes">
               <div class="details-content">
                 <div class="options-list">
                   <span>200/500</span>
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Ganancias">
               <div class="details-content">
                 <div class="options-list">
                   <span>$4,800</span>
@@ -494,7 +519,7 @@
             </td>
           </tr>
           <tr class="offer-details" style="display: none;">
-            <td>
+            <td data-label="Opciones">
               <div class="details-content">
                 <div class="options-list">
                   <span>Opción 1</span>
@@ -504,7 +529,7 @@
             </td>
             <td></td>
             <td></td>
-            <td>
+            <td data-label="Progreso">
               <div class="details-content">
                 <div class="options-list">
                   <div class="progress-bar">
@@ -515,14 +540,14 @@
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Canjes">
               <div class="details-content">
                 <div class="options-list">
                   <span>400/450</span>
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Ganancias">
               <div class="details-content">
                 <div class="options-list">
                   <span>$8,200</span>
@@ -558,7 +583,7 @@
             </td>
           </tr>
           <tr class="offer-details" style="display: none;">
-            <td>
+            <td data-label="Opciones">
               <div class="details-content">
                 <div class="options-list">
                   <span>Opción 1</span>
@@ -568,7 +593,7 @@
             </td>
             <td></td>
             <td></td>
-            <td>
+            <td data-label="Progreso">
               <div class="details-content">
                 <div class="options-list">
                   <div class="progress-bar">
@@ -579,14 +604,14 @@
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Canjes">
               <div class="details-content">
                 <div class="options-list">
                   <span>350/400</span>
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Ganancias">
               <div class="details-content">
                 <div class="options-list">
                   <span>$7,500</span>
@@ -622,7 +647,7 @@
             </td>
           </tr>
           <tr class="offer-details" style="display: none;">
-            <td>
+            <td data-label="Opciones">
               <div class="details-content">
                 <div class="options-list">
                   <span>Opción 1</span>
@@ -632,7 +657,7 @@
             </td>
             <td></td>
             <td></td>
-            <td>
+            <td data-label="Progreso">
               <div class="details-content">
                 <div class="options-list">
                   <div class="progress-bar">
@@ -643,14 +668,14 @@
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Canjes">
               <div class="details-content">
                 <div class="options-list">
                   <span>300/350</span>
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Ganancias">
               <div class="details-content">
                 <div class="options-list">
                   <span>$6,000</span>
@@ -686,7 +711,7 @@
             </td>
           </tr>
           <tr class="offer-details" style="display: none;">
-            <td>
+            <td data-label="Opciones">
               <div class="details-content">
                 <div class="options-list">
                   <span>Opción 1</span>
@@ -696,7 +721,7 @@
             </td>
             <td></td>
             <td></td>
-            <td>
+            <td data-label="Progreso">
               <div class="details-content">
                 <div class="options-list">
                   <div class="progress-bar">
@@ -707,14 +732,14 @@
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Canjes">
               <div class="details-content">
                 <div class="options-list">
                   <span>480/520</span>
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Ganancias">
               <div class="details-content">
                 <div class="options-list">
                   <span>$11,000</span>
@@ -750,7 +775,7 @@
             </td>
           </tr>
           <tr class="offer-details" style="display: none;">
-            <td>
+            <td data-label="Opciones">
               <div class="details-content">
                 <div class="options-list">
                   <span>Opción 1</span>
@@ -760,7 +785,7 @@
             </td>
             <td></td>
             <td></td>
-            <td>
+            <td data-label="Progreso">
               <div class="details-content">
                 <div class="options-list">
                   <div class="progress-bar">
@@ -771,14 +796,14 @@
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Canjes">
               <div class="details-content">
                 <div class="options-list">
                   <span>150/300</span>
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Ganancias">
               <div class="details-content">
                 <div class="options-list">
                   <span>$3,500</span>
@@ -814,7 +839,7 @@
             </td>
           </tr>
           <tr class="offer-details" style="display: none;">
-            <td>
+            <td data-label="Opciones">
               <div class="details-content">
                 <div class="options-list">
                   <span>Opción 1</span>
@@ -824,7 +849,7 @@
             </td>
             <td></td>
             <td></td>
-            <td>
+            <td data-label="Progreso">
               <div class="details-content">
                 <div class="options-list">
                   <div class="progress-bar">
@@ -835,14 +860,14 @@
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Canjes">
               <div class="details-content">
                 <div class="options-list">
                   <span>600/650</span>
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Ganancias">
               <div class="details-content">
                 <div class="options-list">
                   <span>$12,500</span>
@@ -878,7 +903,7 @@
             </td>
           </tr>
           <tr class="offer-details" style="display: none;">
-            <td>
+            <td data-label="Opciones">
               <div class="details-content">
                 <div class="options-list">
                   <span>Opción 1</span>
@@ -888,7 +913,7 @@
             </td>
             <td></td>
             <td></td>
-            <td>
+            <td data-label="Progreso">
               <div class="details-content">
                 <div class="options-list">
                   <div class="progress-bar">
@@ -899,14 +924,14 @@
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Canjes">
               <div class="details-content">
                 <div class="options-list">
                   <span>320/400</span>
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Ganancias">
               <div class="details-content">
                 <div class="options-list">
                   <span>$6,500</span>
@@ -942,7 +967,7 @@
             </td>
           </tr>
           <tr class="offer-details" style="display: none;">
-            <td>
+            <td data-label="Opciones">
               <div class="details-content">
                 <div class="options-list">
                   <span>Opción 1</span>
@@ -952,7 +977,7 @@
             </td>
             <td></td>
             <td></td>
-            <td>
+            <td data-label="Progreso">
               <div class="details-content">
                 <div class="options-list">
                   <div class="progress-bar">
@@ -963,14 +988,14 @@
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Canjes">
               <div class="details-content">
                 <div class="options-list">
                   <span>700/750</span>
                 </div>
               </div>
             </td>
-            <td>
+            <td data-label="Ganancias">
               <div class="details-content">
                 <div class="options-list">
                   <span>$13,000</span>
