@@ -285,6 +285,9 @@ p, span, button, input, select,
   text-align: left;
   vertical-align: middle;
   border: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .offers-list th {
@@ -295,6 +298,53 @@ p, span, button, input, select,
   color: var(--text-secondary);
   background: var(--bg-secondary);
   border-bottom: 2px solid var(--border-color);
+}
+
+.offers-list th:nth-child(1),
+.offers-list td:nth-child(1) {
+  width: 250px;
+  max-width: 250px;
+}
+
+.offers-list th:nth-child(2),
+.offers-list td:nth-child(2) {
+  width: 140px;
+  max-width: 140px;
+}
+
+.offers-list th:nth-child(3),
+.offers-list td:nth-child(3) {
+  width: 120px;
+  max-width: 120px;
+}
+
+.offers-list th:nth-child(4),
+.offers-list td:nth-child(4) {
+  width: 180px;
+  max-width: 180px;
+}
+
+.offers-list th:nth-child(5),
+.offers-list td:nth-child(5) {
+  width: 120px;
+  max-width: 120px;
+}
+
+.offers-list th:nth-child(6),
+.offers-list td:nth-child(6) {
+  width: 120px;
+  max-width: 120px;
+}
+
+.offers-list th:nth-child(7),
+.offers-list td:nth-child(7) {
+  width: 140px;
+  max-width: 140px;
+}
+
+.offers-list table {
+  table-layout: fixed;
+  min-width: 1070px; /* Sum of all column widths */
 }
 
 .offers-list tbody tr {
@@ -1211,13 +1261,40 @@ p, span, button, input, select,
     margin: var(--spacing-xs) 0;
   }
   
-  /* Action buttons container */
+  /* Action buttons container adjustments */
   .offers-list td:last-child {
+    display: flex;
     justify-content: flex-start;
     gap: var(--spacing-sm);
-    padding-top: var(--spacing-sm);
-    border-top: 1px solid var(--border-color);
-    margin-top: var(--spacing-xs);
+    padding: var(--spacing-sm) 0;
+    width: 100%;
+    min-width: 140px; /* Ensure consistent width */
+  }
+  
+  /* Individual action button sizing */
+  .action-btn {
+    flex: 0 0 auto;
+    width: 36px; /* Fixed width */
+    height: 36px; /* Fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: var(--radius-md);
+  }
+  
+  /* Ensure icons are centered */
+  .action-btn i {
+    font-size: 1rem;
+    margin: auto;
+  }
+  
+  /* Container for action buttons to prevent wrapping */
+  .action-buttons-container {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: nowrap;
+    width: 100%;
   }
   
   /* Details row adjustments */
