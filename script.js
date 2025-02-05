@@ -109,13 +109,13 @@ document.addEventListener("DOMContentLoaded", function () {
       } else if (btn.classList.contains("support")) {
         showContactPopup();
       } else if (btn.classList.contains("download")) {
-        showDownloadPopup();
+        showReportsPopup();
       }
     }
   });
 
-  // Function to display the download popup
-  function showDownloadPopup() {
+  // Function to display the reports popup
+  function showReportsPopup() {
     let popup = document.getElementById("download-popup");
     if (!popup) {
       popup = document.createElement("div");
@@ -123,18 +123,20 @@ document.addEventListener("DOMContentLoaded", function () {
       popup.innerHTML = `
         <div class="popup-overlay">
           <div class="popup-content">
-            <h3 class="popup-title">Seleccione tipo de reporte</h3>
+            <h3 class="popup-title">Reportes Disponibles</h3>
             <div class="popup-options">
-              <button id="option-reporte" class="popup-option-btn">
-                <i class="fas fa-file-alt"></i>
+              <a href="https://example.com/reporte-canje" target="_blank" id="option-reporte" class="popup-option-btn">
+                <i class="fas fa-receipt"></i>
                 Reporte de Canje
-              </button>
-              <button id="option-total" class="popup-option-btn">
+                <i class="fas fa-external-link-alt" style="margin-left: 8px; font-size: 0.75em;"></i>
+              </a>
+              <a href="https://example.com/total-vendidos" target="_blank" id="option-total" class="popup-option-btn">
                 <i class="fas fa-chart-bar"></i>
                 Total vendidos
-              </button>
+                <i class="fas fa-external-link-alt" style="margin-left: 8px; font-size: 0.75em;"></i>
+              </a>
             </div>
-            <button id="popup-close" class="popup-close">Cerrar</button>
+            <button id="popup-close" class="popup-close">Volver</button>
           </div>
         </div>
       `;
@@ -145,25 +147,11 @@ document.addEventListener("DOMContentLoaded", function () {
         closePopup(popup);
       });
       
-      document.getElementById("option-reporte").addEventListener("click", function() {
-        const btn = this;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Descargando...';
-        btn.disabled = true;
-        
-        // Simulate download delay
-        setTimeout(() => {
-          btn.innerHTML = '<i class="fas fa-check"></i> ¡Descargado!';
-          setTimeout(() => {
-            closePopup(popup);
-            btn.innerHTML = '<i class="fas fa-file-alt"></i> Reporte de Canje';
-            btn.disabled = false;
-          }, 1000);
-        }, 2000);
-      });
-      
-      document.getElementById("option-total").addEventListener("click", function() {
-        alert("Total vendidos seleccionado");
-        closePopup(popup);
+      // Add click handlers to close popup after link click
+      document.querySelectorAll('.popup-option-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          setTimeout(() => closePopup(popup), 100);
+        });
       });
     }
     openPopup(popup);
