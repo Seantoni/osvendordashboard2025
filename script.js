@@ -219,8 +219,8 @@ document.addEventListener("DOMContentLoaded", function () {
       popup.innerHTML = `
         <div class="popup-overlay">
           <div class="popup-content">
-            <h3 class="popup-title">Repetir Oferta</h3>
-            <p>¿Estás de acuerdo en repetir oferta <strong>${offerName}</strong>?</p>
+            <h3 class="popup-title">Repetir Publicación</h3>
+            <p>¿Estás de acuerdo en repetir publicación <strong>${offerName}</strong>?</p>
             <div class="popup-options" style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;">
               <button id="confirm-repetir" class="popup-option-btn">Sí</button>
               <button id="cancel-repetir" class="popup-option-btn">No</button>
@@ -257,7 +257,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       // Update the message with the current offer name if the popup already exists
       const p = popup.querySelector("p");
-      p.innerHTML = `¿Estás de acuerdo en repetir oferta <strong>${offerName}</strong>?`;
+      p.innerHTML = `¿Estás de acuerdo en repetir publicación <strong>${offerName}</strong>?`;
     }
     openPopup(popup);
   }
@@ -289,7 +289,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Function to display the confirmation popup after repetir oferta
+  // Function to display the confirmation popup after repetir publicación
   function showConfirmacionPopup() {
     let cPopup = document.getElementById("confirmacion-popup");
     if (!cPopup) {
@@ -301,8 +301,8 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="success-icon">
               <i class="fas fa-check-circle"></i>
             </div>
-            <h3 class="popup-title">Oferta Enviada</h3>
-            <p style="margin: 1rem 0;">¡Excelente! Tu oferta fue enviada y será revisada por nuestro equipo 
+            <h3 class="popup-title">Publicación Enviada</h3>
+            <p style="margin: 1rem 0;">¡Excelente! Tu publicación fue enviada y será revisada por nuestro equipo 
             en las siguientes 24 horas hábiles. ¡Te contactaremos apenas terminemos! 🎉</p>
             <div class="popup-options" style="margin-top: 1rem;">
               <button id="confirmacion-close" class="popup-option-btn" style="background: var(--main-color); color: white;">
@@ -467,7 +467,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Add repetir oferta functionality to best deal cards (only for the "Repetir oferta" button)
+  // Add repetir publicación functionality to best deal cards (only for the "Repetir publicación" button)
   const bestDealCTAButtons = document.querySelectorAll(".best-deal-card .cta-button");
   console.log("Best deal CTA buttons found:", bestDealCTAButtons.length);
   bestDealCTAButtons.forEach(btn => {

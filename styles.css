@@ -36,6 +36,7 @@
   --spacing-sm: 0.75rem;
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
   
   /* Transitions */
   --transition-base: all 0.2s ease;
@@ -47,14 +48,14 @@
 }
 
 body {
-  font-family: 'Lexend', system-ui, sans-serif;
+  font-family: 'Nunito', system-ui, sans-serif;
   background: var(--bg-secondary);
   color: var(--text-primary);
   padding: var(--spacing-lg);
   line-height: 1.5;
 }
 
-/* Apply Lexend to all text elements */
+/* Apply Nunito to all text elements */
 h1, h2, h3, h4, h5, h6,
 p, span, button, input, select,
 .popup-content,
@@ -62,7 +63,7 @@ p, span, button, input, select,
 .offer-name,
 .status,
 .progress-label {
-  font-family: 'Lexend', system-ui, sans-serif;
+  font-family: 'Nunito', system-ui, sans-serif;
 }
 
 /* Adjust font weights for better Lexend rendering */
@@ -778,21 +779,22 @@ p, span, button, input, select,
 
 /* Header Styles */
 .header-background {
-  max-width: 1200px;
-  margin: 0 auto;
-  background: linear-gradient(to right, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-  border-bottom: 1px solid var(--border-color);
-  box-shadow: var(--shadow-sm);
-  border-radius: var(--radius-lg);
-  margin-bottom: var(--spacing-lg);
+  background: var(--bg-primary);
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 2px solid var(--border-color);
 }
 
 .site-header {
-  padding: var(--spacing-md) var(--spacing-lg);
-  background: transparent;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--spacing-lg) var(--spacing-xl);
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-lg);
 }
 
 .header-left {
@@ -807,73 +809,50 @@ p, span, button, input, select,
 }
 
 .company-logo {
-  height: 35px;
+  height: 50px;
   width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.company-logo:hover {
+  transform: scale(1.05);
 }
 
 .dashboard-info {
-  display: flex;
-  align-items: center;
-  padding: 0 var(--spacing-lg);
-  border-right: 1px solid var(--border-color);
-  border-left: 1px solid var(--border-color);
-  grid-area: title;
-  padding: 0 var(--spacing-sm);
-  border: none;
-  justify-self: start;
-  display: flex;
-  align-items: center;
+  border-left: 3px solid var(--border-color);
+  padding-left: var(--spacing-lg);
 }
 
 .dashboard-title {
+  font-size: 1.5rem;
+  font-weight: 600;
   color: var(--text-secondary);
-  font-size: 0.875rem;
-  font-weight: normal;
-  white-space: nowrap;
+  margin: 0;
 }
 
 .business-name {
-  font-size: 1rem;
+  font-size: 1.75rem;
+  font-weight: 700;
   color: var(--text-primary);
-  font-weight: normal;
-  width: 100%;
-  text-align: left;
-  padding-top: var(--spacing-xs);
-  border-top: 1px solid var(--border-color);
-}
-
-.company-logo {
-  height: 28px;
-  margin-right: var(--spacing-xs);
-}
-
-.header-content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
-}
-
-.header-subtitle {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  font-weight: 400;
-  margin-left: var(--spacing-sm);
+  margin: 0;
 }
 
 .header-date {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
-  color: var(--text-secondary);
-  font-size: 0.875rem;
-  padding: var(--spacing-xs) var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
   background: var(--bg-secondary);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-sm);
 }
 
 .header-date i {
   color: var(--main-color);
+  font-size: 1.25rem;
 }
 
 /* Popup Styles */
@@ -1302,8 +1281,8 @@ p, span, button, input, select,
     background: transparent;
     padding: var(--spacing-xs) var(--spacing-sm);
   }
-  
-  .offer-details .details-content {
+
+.offer-details .details-content {
     width: 100%;
   }
 
