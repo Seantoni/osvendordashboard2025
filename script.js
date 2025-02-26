@@ -88,7 +88,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // Toggle the expanded class for animation
         offerRow.classList.toggle("expanded");
         
-        if (detailsRow.style.display === "none" || detailsRow.style.display === "") {
+        // Check current display value, considering the CSS default is now "none"
+        const currentDisplay = window.getComputedStyle(detailsRow).display;
+        if (currentDisplay === "none") {
           detailsRow.style.display = "table-row";
         } else {
           detailsRow.style.display = "none";
@@ -109,53 +111,16 @@ document.addEventListener("DOMContentLoaded", function () {
       } else if (btn.classList.contains("support")) {
         showContactPopup();
       } else if (btn.classList.contains("download")) {
-        showReportsPopup();
+        const offerRow = btn.closest("tr.offer-row");
+        const offerName = offerRow.querySelector(".offer-name").innerText;
+        showReportsPopup(offerName);
+      } else if (btn.classList.contains("purchases-report")) {
+        const offerRow = btn.closest("tr.offer-row");
+        const offerName = offerRow.querySelector(".offer-name").innerText;
+        showPurchasesReportPopup(offerName);
       }
     }
   });
-
-  // Function to display the reports popup
-  function showReportsPopup() {
-    let popup = document.getElementById("download-popup");
-    if (!popup) {
-      popup = document.createElement("div");
-      popup.id = "download-popup";
-      popup.innerHTML = `
-        <div class="popup-overlay">
-          <div class="popup-content">
-            <h3 class="popup-title">Reportes Disponibles</h3>
-            <div class="popup-options">
-              <a href="https://example.com/reporte-canje" target="_blank" id="option-reporte" class="popup-option-btn">
-                <i class="fas fa-receipt"></i>
-                Reporte de Canje
-                <i class="fas fa-external-link-alt" style="margin-left: 8px; font-size: 0.75em;"></i>
-              </a>
-              <a href="https://example.com/total-vendidos" target="_blank" id="option-total" class="popup-option-btn">
-                <i class="fas fa-chart-bar"></i>
-                Total vendidos
-                <i class="fas fa-external-link-alt" style="margin-left: 8px; font-size: 0.75em;"></i>
-              </a>
-            </div>
-            <button id="popup-close" class="popup-close">Volver</button>
-          </div>
-        </div>
-      `;
-      document.body.appendChild(popup);
-
-      // Set up event listeners for popup buttons
-      document.getElementById("popup-close").addEventListener("click", function() {
-        closePopup(popup);
-      });
-      
-      // Add click handlers to close popup after link click
-      document.querySelectorAll('.popup-option-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          setTimeout(() => closePopup(popup), 100);
-        });
-      });
-    }
-    openPopup(popup);
-  }
 
   // Function to display the contact popup
   function showContactPopup() {
@@ -171,10 +136,6 @@ document.addEventListener("DOMContentLoaded", function () {
               <button id="option-ventas" class="popup-option-btn">
                 <i class="fas fa-dollar-sign"></i>
                 Ventas
-              </button>
-              <button id="option-atencion-cliente" class="popup-option-btn">
-                <i class="fas fa-headset"></i>
-                Atención al cliente
               </button>
               <button id="option-atencion-aliado" class="popup-option-btn">
                 <i class="fas fa-handshake"></i>
@@ -194,11 +155,6 @@ document.addEventListener("DOMContentLoaded", function () {
       
       document.getElementById("option-ventas").addEventListener("click", function() {
         alert("Ventas seleccionado.");
-        closePopup(popup);
-      });
-      
-      document.getElementById("option-atencion-cliente").addEventListener("click", function() {
-        alert("Atención al cliente seleccionado.");
         closePopup(popup);
       });
       
@@ -520,5 +476,113 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('.offer-row').forEach(row => {
       row.classList.remove('expanded');
     });
+  }
+
+  // Function to display the reports popup
+  function showReportsPopup(offerName) {
+    let popup = document.getElementById("reports-popup");
+    if (!popup) {
+      popup = document.createElement("div");
+      popup.id = "reports-popup";
+      popup.innerHTML = `
+        <div class="popup-overlay">
+          <div class="popup-content">
+            <h3 class="popup-title">Seleccione el reporte</h3>
+            <div class="popup-section">
+              <div class="popup-options">
+                <button id="period-dia-anterior" class="popup-option-btn">
+                  <i class="fas fa-calendar-day"></i>
+                  Día Anterior
+                </button>
+                <button id="period-mismo-dia" class="popup-option-btn">
+                  <i class="fas fa-calendar-day"></i>
+                  Mismo Día
+                </button>
+                <button id="period-semana-anterior" class="popup-option-btn">
+                  <i class="fas fa-calendar-week"></i>
+                  Semana Anterior
+                </button>
+                <button id="period-mes-anterior" class="popup-option-btn">
+                  <i class="fas fa-calendar-alt"></i>
+                  Mes Anterior
+                </button>
+              </div>
+            </div>
+            
+            <button id="reports-popup-close" class="popup-close">Cerrar</button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(popup);
+
+      // Set up event listeners
+      document.getElementById("reports-popup-close").addEventListener("click", function() {
+        closePopup(popup);
+      });
+      
+      // Definir acciones para cada opción de periodo
+      const handlePeriodSelection = (periodId) => {
+        // En un escenario real, aquí se podría redirigir a una URL específica según el periodo
+        // Por ahora, solo mostraremos un mensaje y cerraremos el popup
+        const periodText = document.getElementById(periodId).innerText.trim();
+        window.open(`https://example.com/reporte?periodo=${periodId}&oferta=${encodeURIComponent(offerName)}`, '_blank');
+        closePopup(popup);
+      };
+      
+      document.getElementById("period-dia-anterior").addEventListener("click", function() {
+        handlePeriodSelection("period-dia-anterior");
+      });
+      
+      document.getElementById("period-mismo-dia").addEventListener("click", function() {
+        handlePeriodSelection("period-mismo-dia");
+      });
+      
+      document.getElementById("period-semana-anterior").addEventListener("click", function() {
+        handlePeriodSelection("period-semana-anterior");
+      });
+      
+      document.getElementById("period-mes-anterior").addEventListener("click", function() {
+        handlePeriodSelection("period-mes-anterior");
+      });
+      
+      // Add keyboard navigation support
+      const popupButtons = popup.querySelectorAll('.popup-option-btn');
+      let currentFocusIndex = 0;
+      
+      const handleKeyNavigation = (e) => {
+        if (e.key === 'Escape') {
+          closePopup(popup);
+        } else if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          currentFocusIndex = Math.min(currentFocusIndex + 1, popupButtons.length - 1);
+          popupButtons[currentFocusIndex].focus();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          currentFocusIndex = Math.max(currentFocusIndex - 1, 0);
+          popupButtons[currentFocusIndex].focus();
+        } else if (e.key === 'Enter') {
+          popupButtons[currentFocusIndex].click();
+        }
+      };
+      
+      document.addEventListener('keydown', handleKeyNavigation);
+      
+      // Remove event listener when popup is closed
+      const cleanup = () => {
+        document.removeEventListener('keydown', handleKeyNavigation);
+      };
+      popup.addEventListener('hidden', cleanup, { once: true });
+    } else {
+      // Update the message with the current offer name if the popup already exists
+      const p = popup.querySelector("p");
+      p.innerHTML = `Publicación: <strong>${offerName}</strong>`;
+    }
+    openPopup(popup);
+  }
+
+  // Function to display the purchases report popup
+  function showPurchasesReportPopup(offerName) {
+    // Redirect directly to the purchases report page
+    window.open(`https://example.com/reporte-compras?oferta=${encodeURIComponent(offerName)}`, '_blank');
   }
 }); 
